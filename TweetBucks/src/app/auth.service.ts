@@ -49,5 +49,7 @@ export class Auth {
         localStorage.removeItem('id_token');
         localStorage.removeItem('profile');
         this.userProfile = undefined;
+            this.router.navigate(['login']);
+
     };
 }

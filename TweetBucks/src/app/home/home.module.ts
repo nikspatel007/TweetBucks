@@ -11,6 +11,7 @@ import 'rxjs/add/operator/toPromise';
 
 import { Auth } from 'app/auth.service';
 import { HomeComponent } from './home.component';
+import { TweetTextboxComponent} from './tweet-textbox/tweet-textbox.component'
 import { HomeGuard } from './home.guard';
 
 @NgModule({
@@ -22,6 +23,6 @@ import { HomeGuard } from './home.guard';
   ],
   providers: [ HomeGuard , appRoutingProviders,
     AUTH_PROVIDERS , Auth],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent, TweetTextboxComponent]
 })
 export class HomeModule { }

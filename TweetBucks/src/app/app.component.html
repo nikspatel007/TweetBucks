@@ -3,7 +3,8 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Tweet Bucks</a>
       <button class="btn btn-primary btn-margin pull-right" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
- 
+      <button class="btn btn-primary btn-margin" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
+    
   </div>
   </div>
 </nav>
