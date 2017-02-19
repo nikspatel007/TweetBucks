@@ -52,5 +52,5 @@
   "defaults": {
     "styleExt": "sass",
     "component": {}
-  }
+  } 
 }

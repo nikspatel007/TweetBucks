@@ -8,6 +8,8 @@ import 'rxjs/add/operator/toPromise';
 import { HomeModule } from './home/home.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { LoginService } from './shared/services/login.service'
+import { GlobalVariablesService } from './shared/services/global-variables.service'
 
 @NgModule({
   declarations: [
@@ -19,12 +21,13 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     HttpModule,
     RouterModule.forRoot([
-      { path: '', component: LoginComponent },
-      { path: '**', redirectTo: 'files', pathMatch: 'full' }
+      { path: '', component: AppComponent },
+      { path: 'login', component : LoginComponent},
+      { path: '**', redirectTo: '', pathMatch: 'full' }
     ]),
     HomeModule
   ],
-  providers: [],
+  providers: [LoginService, GlobalVariablesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

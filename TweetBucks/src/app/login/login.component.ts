@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Headers} from '@angular/http';
-import { Router } from '@angular/router'
-
+import { Router } from '@angular/router';
+import { LoginService } from 'app/shared/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -13,18 +13,16 @@ export class LoginComponent implements OnInit {
  searchquery = '';
   tweetsdata;
   
-  constructor(private http: Http , private router : Router){}
+  constructor(private loginService : LoginService, private router : Router){}
   
   login() {
-    var headers = new Headers();
-    
-    headers.append('Content-Type', 'application/X-www-form-urlencoded');
-    
-    this.http.post('http://localhost:3000/authorize', {headers: headers}).subscribe((res) => {
+    this.loginService.authorize().subscribe(res => 
+    {
       console.log(res);
-       this.router.navigate(['/home']);
-    })
+      this.router.navigate(['/home']);
+    });
   }
+
   ngOnInit() {
   }
 }
