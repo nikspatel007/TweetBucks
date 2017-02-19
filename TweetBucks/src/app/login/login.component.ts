@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Headers} from '@angular/http';
 import { Router } from '@angular/router'
+import { Auth }       from 'app/auth.service';
 
 
 @Component({
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
  searchquery = '';
   tweetsdata;
   
-  constructor(private http: Http , private router : Router){}
+  constructor(private http: Http , private router : Router, private auth : Auth){
+  }
   
   login() {
     var headers = new Headers();
@@ -25,6 +27,11 @@ export class LoginComponent implements OnInit {
        this.router.navigate(['/home']);
     })
   }
+
   ngOnInit() {
+    if(this.auth.authenticated())
+    {
+      this.router.navigate(['home']);
+    }
   }
 }

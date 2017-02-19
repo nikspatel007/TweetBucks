@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { Http, Headers} from '@angular/http';
+import { Auth }              from './auth.service';
 
 @Component({
   selector: 'app-root',
+  providers: [ Auth ],   
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass']
 })
@@ -11,7 +13,7 @@ export class AppComponent {
   searchquery = '';
   tweetsdata;
   
-  constructor(private http: Http){}
+  constructor(private http: Http, private auth : Auth){}
   
   makecall() {
     var headers = new Headers();
