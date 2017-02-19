@@ -1,3 +1,42 @@
 <p>
   home works!
 </p>
+<app-tweet-textbox>
+
+</app-tweet-textbox>  
+
+
+<br />
+
+
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        User Timeline
+    </div>
+
+    <!-- Filter the Products   -->
+    <div class='panel-body'>
+        <div class='table-responsive'>
+            <table class='table'
+                   *ngIf='timeline && timeline.length'>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>ReTweeted</th>
+                        <th>Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <tr *ngFor='let tl of timeline '>
+  
+                        <td>{{ tl.user.name }}</td>
+                        <td>{{ tl.retweet_count }}</td>
+                        <td>{{ tl.created_at | date}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
