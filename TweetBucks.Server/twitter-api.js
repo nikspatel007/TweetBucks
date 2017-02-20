@@ -4,12 +4,12 @@ var twitter = require('twitter');
 var request = require('request');
 
 var createTwitter = function (userId) {
-    var identity = auth0.getTwitterAccessToken(userId);
+    // var identity = auth0.getTwitterAccessToken(userId);
     var client = new twitter({
         consumer_key: config.twitter.consumer_key,
         consumer_secret: config.twitter.consumer_secret,
-        access_token_key: identity.access_token_key,
-        access_token_secret: identity.access_token_secret
+        access_token_key: "709952466817851392-VNpSn9lDUxbxs3HRf9WtEVFkJiFQW9A",
+        access_token_secret: "PGtwNHv7EJvez0WkJKllQgKuF1yvn8LcZDScnQBffILf0"
     });
     return client;
 }
@@ -26,10 +26,12 @@ var followers = function (req, res) {
                 error: error
             });
         else {
-            res.json({
+            res.writeHead(200, { "Content-Type": "application/json" });
+            var json = JSON.stringify({
                 success: true,
                 data: followers
             });
+            res.end(json);
         }
     });
 
@@ -47,10 +49,12 @@ var timeline = function (req, res) {
                 error: error
             });
         else {
-            res.json({
+            res.writeHead(200, { "Content-Type": "application/json" });
+            var json = JSON.stringify({
                 success: true,
                 data: timeline
             });
+            res.end(json);
         }
     });
 
@@ -78,10 +82,12 @@ var createTweet = function (req, res) {
                 error: error
             });
         else {
-            res.json({
+            res.writeHead(200, { "Content-Type": "application/json" });
+            var json = JSON.stringify({
                 success: true,
                 data: tweet
             });
+            res.end(json);
         }
     });
 
@@ -102,19 +108,21 @@ var deleteTweet = function (req, res) {
                 error: error
             });
         else {
-            res.json({
+            res.writeHead(200, { "Content-Type": "application/json" });
+            var json = JSON.stringify({
                 success: true,
                 data: tweet
             });
+            res.end(json);
         }
     });
 }
 
 var functions = {
-    followers : followers,
-    timeline : timeline,
-    createTweet : createTweet,
-    deleteTweet : deleteTweet
+    followers: followers,
+    timeline: timeline,
+    createTweet: createTweet,
+    deleteTweet: deleteTweet
 }
 
 module.exports = functions;

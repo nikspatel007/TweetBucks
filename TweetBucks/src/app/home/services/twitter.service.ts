@@ -26,7 +26,7 @@ export class TwitterService {
         let options = new RequestOptions({ headers: headers });
         let url = this.baseUrl + "followers/" + targetUserName;
         return this.http.get(url, options)            
-                .map((res:Response)  => <TwitterUser[]>res.json())
+                .map((res:Response)  => <TwitterUser[]>res.json().data.users)
                 .catch(this.handleError);
   }
   
