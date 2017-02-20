@@ -1,9 +1,9 @@
 {
   "name": "tweet-bucks",
   "version": "0.1.0",
-   "description": "Send Money by tweeting.",
+  "description": "Send Money by tweeting.",
   "scripts": {
-     "ng": "ng",
+    "ng": "ng",
     "start": "ng serve",
     "test": "ng test",
     "lint": "ng lint",
@@ -35,10 +35,11 @@
     "angular2-jwt": "^0.1.25",
     "bootstrap": "^3.3.6",
     "core-js": "^2.4.1",
+    "ng2-toastr": "^1.4.1",
     "node-sass": "^4.5.0",
     "rxjs": "^5.1.0",
-    "systemjs": "0.19.27",
     "sass-loader": "^6.0.1",
+    "systemjs": "0.19.27",
     "webpack": "^2.2.1",
     "zone.js": "^0.7.6"
   },

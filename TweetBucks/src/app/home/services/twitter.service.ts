@@ -38,6 +38,16 @@ export class TwitterService {
                 .map((res:Response)  => <Tweet[]>res.json().data)
                 .catch(this.handleError);
   }
+
+    
+   createTweet(tweet : string) : Observable<Tweet[]>{
+       let headers = new Headers({ 'Content-Type': 'application/json'});
+        let options = new RequestOptions({ headers: headers });
+        let url = this.baseUrl + "tweet/create/";
+        return this.http.post(url, {"text": tweet} ,options)            
+                .map((res:Response)  => <Tweet>res.json().data)
+                .catch(this.handleError);
+  }
   
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error);

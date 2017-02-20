@@ -70,7 +70,7 @@ var timeline = function (req, res) {
 var createTweet = function (req, res) {
     var userId = req.params.userid;
     var client = createTwitter(userId);
-    var tweet = req.body;
+    var tweet = req.body.text;
     var encoded = encodeURIComponent(tweet);
 
     //Post Tweet.

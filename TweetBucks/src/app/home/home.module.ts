@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router'
 import { CommonModule } from '@angular/common';
 import { AUTH_PROVIDERS }      from 'angular2-jwt';
 import { routing, appRoutingProviders } from 'app/app.routes';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
+   
 
 import 'rxjs/add/operator/toPromise';
 
@@ -20,7 +22,7 @@ import { TwitterListComponent } from './twitter-list/twitter-list.component';
 
 @NgModule({
   imports: [
-    CommonModule,BrowserModule, FormsModule, HttpModule
+    CommonModule,BrowserModule, FormsModule, HttpModule, ToastModule.forRoot()
     , RouterModule.forChild([
       { path: 'home', component: HomeComponent , canActivate : [HomeGuard]},
     ])
