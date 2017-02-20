@@ -1,0 +1,30 @@
+<p>
+  twitter-followers works!
+</p>
+
+<div class='table-responsive'>
+  <table class='table' *ngIf='followers && followers.length'>
+    <thead>
+      <tr>
+        <th>
+          Profile Image
+        </th>
+        <th>FirstName</th>
+        <th>Mention</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let follower of followers'>
+        <td>
+          <img [src]='follower.profile_image_url' [title]='follower.screen_name'>
+        </td>
+        <td>
+          {{follower.name}}
+          <td>{{follower.screen_name}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+</div>

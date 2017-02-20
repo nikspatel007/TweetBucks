@@ -1,4 +1,4 @@
-import {User} from './user';
+import {TwitterUser} from './twitter-user';
 
 export interface Timeline {
         coordinates?: any;
@@ -17,7 +17,7 @@ export interface Timeline {
         possibly_sensitive: boolean;
         in_reply_to_user_id?: any;
         place?: any;
-        user: User;
+        user: TwitterUser;
         in_reply_to_screen_name?: any;
         source: string;
         in_reply_to_status_id?: any;

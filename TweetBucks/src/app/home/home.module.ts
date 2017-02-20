@@ -14,6 +14,9 @@ import { HomeComponent } from './home.component';
 import { TweetTextboxComponent} from './tweet-textbox/tweet-textbox.component'
 import { HomeGuard } from './home.guard';
 
+import { TwitterService } from './services/twitter.service';
+import { TwitterFollowersComponent } from './twitter-followers/twitter-followers.component';
+
 @NgModule({
   imports: [
     CommonModule,BrowserModule, FormsModule, HttpModule
@@ -21,8 +24,8 @@ import { HomeGuard } from './home.guard';
       { path: 'home', component: HomeComponent , canActivate : [HomeGuard]},
     ])
   ],
-  providers: [ HomeGuard , appRoutingProviders,
+  providers: [ HomeGuard , TwitterService, appRoutingProviders,
     AUTH_PROVIDERS , Auth],
-  declarations: [HomeComponent, TweetTextboxComponent]
+  declarations: [HomeComponent, TweetTextboxComponent, TwitterFollowersComponent]
 })
 export class HomeModule { }

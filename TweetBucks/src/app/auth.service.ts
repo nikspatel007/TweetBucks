@@ -3,6 +3,7 @@ import { tokenNotExpired } from 'angular2-jwt';
 import { myConfig } from './auth.config';
 import { Router } from '@angular/router';
 
+import { User } from './user';
 // Avoid name not found warnings
 declare var Auth0Lock: any;
 
@@ -10,7 +11,7 @@ declare var Auth0Lock: any;
 export class Auth {
     // Configure Auth0
     lock = new Auth0Lock(myConfig.clientID, myConfig.domain, {});
-    userProfile: Object;
+    userProfile: User;
 
     constructor(private router: Router) {
         this.userProfile = JSON.parse(localStorage.getItem('profile'));
@@ -26,7 +27,7 @@ export class Auth {
                 }
 
                 localStorage.setItem('profile', JSON.stringify(profile));
-                this.userProfile = profile;
+                this.userProfile = <User>profile;
             });
 
             this.router.navigate(['home'], {});
@@ -43,7 +44,7 @@ export class Auth {
         // It searches for an item in localStorage with key == 'id_token'
         return tokenNotExpired();
     };
-
+    
     public logout() {
         // Remove token from localStorage
         localStorage.removeItem('id_token');
