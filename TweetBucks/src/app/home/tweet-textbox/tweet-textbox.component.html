@@ -1,13 +1,13 @@
 
+<div class="form-group" >
+  <label>
+    Tweet
+  </label>
+  <textarea class="form-control" rows="3" [value]="tweet" [(ngModel)]="tweet"></textarea>
+</div>
 Please enter 140 characters only.
-<textarea [value]="tweet" [(ngModel)]="tweet">
-
-</textarea>
-
 <br />
-<button name="submit" value="submit" (click)="parseTweet()">
-  Submit
-</button>
+<button type="submit" class="btn btn-default pull-right" value="submit" (click)="parseTweet()">Submit</button>
 
 your tweet is 
 <div *ngIf="isValid"> Valid.</div>

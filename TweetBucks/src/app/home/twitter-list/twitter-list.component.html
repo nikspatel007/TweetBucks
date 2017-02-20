@@ -1,30 +1,17 @@
-<p>
-  twitter-list works!
-</p>
-
-<div class='table-responsive'>
-  <table class='table' *ngIf='tweets && tweets.length'>
-    <thead>
-      <tr>
-        <th>
-          Created By
-        </th>
-        <th>Text</th>
-        <th>ReTweeted</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor='let tweet of tweets'>
-        <td>
-          <img [src]='tweet.user.profile_image_url' [title]='tweet.user.screen_name'>
-        </td>
-        <td>
-          {{tweet.text}}
-          <td>{{tweet.retweet_count}}</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Recent Tweets</h3>
+  </div>
+  <div class="panel-body">
+    <div class="list-group">
+      <div *ngFor='let tweet of tweets '>
+        <a href="#" class="list-group-item">
+          <h4 class="list-group-item-heading">
+            <img [src]='tweet.user.profile_image_url' [title]='tweet.user.screen_name'> {{tweet.user.name}}
+          </h4>
+          <p class="list-group-item-text"> {{tweet.text}}</p>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

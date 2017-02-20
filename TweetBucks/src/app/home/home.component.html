@@ -1,65 +1,78 @@
-
-<div class="row">
-     <div *ngIf="auth.authenticated() && auth.userProfile">
-    <h4>You are logged in</h4>
-    <div class="row">
-      <div class="col-md-6">
-        <h3>Profile</h3>
-        <img [src]="auth.userProfile.picture" alt="" class="profile-img">
-        <p><strong>Name: </strong> {{auth.userProfile.name}}</p>
-        <p><strong>Email: </strong> {{auth.userProfile.email}}</p>
-        <p><strong>Nickname: </strong> {{auth.userProfile.nickname}}</p>
-        <p><strong>Created At: </strong> {{auth.userProfile.created_at}}</p>
-        <p><strong>Updated At: </strong> {{auth.userProfile.updated_at}}</p>
-      </div>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+        <a class="navbar-brand" routerLink="/home">TweetBucks</a>
     </div>
-  </div>
-  <h4 *ngIf="!auth.authenticated()">You are not logged in, please click 'Log in' button to login</h4>
-</div>
-
-<app-tweet-textbox>
-
-</app-tweet-textbox>
-
-
-<br />
-
-
-
-<div class='panel panel-primary'>
-    <div class='panel-heading'>
-        User Timeline
+    <!-- Top Menu Items -->
+    <ul class="nav navbar-right top-nav">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{auth.userProfile.name}} <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-power-off" (click)="auth.logout()" *ngIf="auth.authenticated()"></i> Log Out</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav side-nav">
+            <li class="active">
+                <a routerLink="/home"><i class="fa fa-fw fa-dashboard" > </i> TweetBucks Dashboard </a>
+            </li>
+        </ul>
     </div>
+    <!-- /.navbar-collapse -->
+</nav>
 
-    <!-- Filter the Products   -->
-    <div class='panel-body'>
-        <div class='table-responsive'>
-            <table class='table'
-                   *ngIf='timeline && timeline.length'>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>ReTweeted</th>
-                        <th>Created</th>
-                    </tr>
-                </thead>
-                <tbody>
-                     <tr *ngFor='let tl of timeline '>
-  
-                        <td>{{ tl.user.name }}</td>
-                        <td>{{ tl.retweet_count }}</td>
-                        <td>{{ tl.created_at | date}}</td>
+<div id="page-wrapper">
 
-                    </tr>
-                </tbody>
-            </table>
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Dashboard <small>TweetBucks</small>
+                </h1>
+            </div>
         </div>
+
+        <div class="row">
+            <app-tweet-textbox>
+
+            </app-tweet-textbox>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-8">
+
+                <app-twitter-list>
+                </app-twitter-list>
+
+            </div>
+            <div class="col-lg-4">
+                <app-twitter-followers>
+                </app-twitter-followers>
+            </div>
+        </div>
+                <!-- /.row -->
+        <!-- /.row -->
+        <div class="row">
+        </div>
+        <!-- /.row -->
+
+
     </div>
+    <!-- /.container-fluid -->
+
 </div>
-
-<app-twitter-list>
-</app-twitter-list>
-
--------------------------------------------------------------------------------
-<app-twitter-followers>
-</app-twitter-followers>
+<!-- /#page-wrapper -->
