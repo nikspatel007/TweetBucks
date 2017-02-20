@@ -16,6 +16,7 @@ import { HomeGuard } from './home.guard';
 
 import { TwitterService } from './services/twitter.service';
 import { TwitterFollowersComponent } from './twitter-followers/twitter-followers.component';
+import { TwitterListComponent } from './twitter-list/twitter-list.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,6 @@ import { TwitterFollowersComponent } from './twitter-followers/twitter-followers
   ],
   providers: [ HomeGuard , TwitterService, appRoutingProviders,
     AUTH_PROVIDERS , Auth],
-  declarations: [HomeComponent, TweetTextboxComponent, TwitterFollowersComponent]
+  declarations: [HomeComponent, TweetTextboxComponent, TwitterFollowersComponent, TwitterListComponent]
 })
 export class HomeModule { }

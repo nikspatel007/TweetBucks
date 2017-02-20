@@ -30,6 +30,15 @@ export class TwitterService {
                 .catch(this.handleError);
   }
   
+   getTweets(targetUserName : string) : Observable<Tweet[]>{
+       let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        let url = this.baseUrl + "timeline/" + targetUserName;
+        return this.http.get(url, options)            
+                .map((res:Response)  => <Tweet[]>res.json().data)
+                .catch(this.handleError);
+  }
+  
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);

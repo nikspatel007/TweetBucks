@@ -1,0 +1,30 @@
+<p>
+  twitter-list works!
+</p>
+
+<div class='table-responsive'>
+  <table class='table' *ngIf='tweets && tweets.length'>
+    <thead>
+      <tr>
+        <th>
+          Created By
+        </th>
+        <th>Text</th>
+        <th>ReTweeted</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let tweet of tweets'>
+        <td>
+          <img [src]='tweet.user.profile_image_url' [title]='tweet.user.screen_name'>
+        </td>
+        <td>
+          {{tweet.text}}
+          <td>{{tweet.retweet_count}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+</div>

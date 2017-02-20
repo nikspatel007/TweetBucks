@@ -43,7 +43,7 @@ var timeline = function (req, res) {
     var screenName = req.params.screenname;
     //https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=twitterapi&count=2
     //List of Tweets.
-    client.get('statuses/user_timeline.json?screen_name=' + screenName + "&count=200", function (error, tweets, response) {
+    client.get('statuses/user_timeline.json?screen_name=' + screenName + "&count=200", function (error, timeline, response) {
         if (error)
             res.status(500).send({
                 error: error
